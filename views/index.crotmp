@@ -1,0 +1,130 @@
+<!doctype html>
+
+<meta name=viewport content="maximum-scale=1,user-scalable=0,width=device-width">
+<title>Play Perl 6</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a {
+    background: linear-gradient(to bottom, #00a9e0 0, #007ba3 100%);
+    border-radius: .25rem;
+    border: 1px solid #007399;
+    color: #fff;
+    display: inline-block;
+    height: 2rem;
+    line-height: calc(2rem - 2px);
+    margin: .5rem 0 .5rem auto;
+    padding: 0 .5rem;
+}
+
+a:hover {
+    background: #007ba3;
+    cursor: pointer;
+}
+
+body {
+    color: #333;
+    font: 16px font, system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+main {
+    background: #ffd;
+    bottom: 25%;
+    overflow: hidden;
+    padding: .25rem;
+    top: 3rem;
+}
+
+main, nav, samp {
+    position: fixed;
+    width: 100%;
+}
+
+nav {
+    background: linear-gradient(to bottom, #dae457 0, #d0dd2b 100%);
+    border-bottom: 1px solid #acb81d;
+    display: flex;
+    height: 3rem;
+    padding: 0 .5rem;
+}
+
+samp {
+    bottom: 0;
+    padding: .5rem;
+    top: 75%;
+}
+
+textarea {
+    background: none;
+    border: 0;
+    height: 100%;
+    outline: none;
+    padding: 0;
+    width: calc(100% - 2rem);
+}
+
+textarea, #lines {
+    font: 16px monospace;
+    padding: .25rem;
+}
+
+#lines {
+    color: lightgray;
+    float: left;
+    min-height: 0;
+    text-align: right;
+    width: 2rem;
+}
+</style>
+
+<nav>
+    <h1>Play Perl 6</h1>
+    <a>Run</a>
+</nav>
+
+<main>
+    <div id=lines></div>
+    <textarea autofocus wrap=off>
+use v6.c;
+
+say 'Hello, World!';
+</textarea>
+</main>
+
+<samp></samp>
+
+<script><!--
+const lines    = document.querySelector('#lines');
+const samp     = document.querySelector('samp');
+const textarea = document.querySelector('textarea');
+
+let line = 1;
+
+(textarea.onscroll = onresize = () => {
+    lines.style.marginTop = -textarea.scrollTop + 'px';
+
+    const height = textarea.clientHeight + textarea.scrollTop;
+
+    while (lines.clientHeight < height)
+        lines.appendChild(document.createElement('div')).innerText = line++;
+})();
+
+textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
+
+document.querySelector('a').onclick = async () => {
+    const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
+    const data = await res.json();
+
+    samp.innerText = data.stdout;
+};
+--></script>
