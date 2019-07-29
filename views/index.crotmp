@@ -94,7 +94,7 @@ textarea, #lines {
 
 <main>
     <div id=lines></div>
-    <textarea autofocus wrap=off>
+    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off>
 use v6.c;
 
 say 'Hello, World!';
