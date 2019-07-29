@@ -40,4 +40,4 @@ RUN git clone git://github.com/ugexe/zef \
 
 ENV PATH /usr/share/perl6/site/bin:$PATH
 
-CMD ["zef", "--/test", "--to=vendor", "install", "Cro::WebApp"]
+ENTRYPOINT ["zef", "--/test", "--to=vendor"]
