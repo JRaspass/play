@@ -17,7 +17,7 @@ a {
     display: inline-block;
     height: 2rem;
     line-height: calc(2rem - 2px);
-    margin: .5rem 0 .5rem auto;
+    margin: .5rem 0;
     padding: 0 .5rem;
 }
 
@@ -34,7 +34,7 @@ body {
 h1 {
     display: inline-block;
     font-size: 1.5rem;
-    line-height: 3rem;
+    margin-right: auto;
 }
 
 main {
@@ -55,6 +55,7 @@ nav {
     border-bottom: 1px solid #acb81d;
     display: flex;
     height: 3rem;
+    line-height: 3rem;
     padding: 0 .5rem;
 }
 
@@ -89,7 +90,7 @@ textarea, #lines {
 
 <nav>
     <h1>Play Perl 6</h1>
-    <a>Run</a>
+    ctrl + enter or&nbsp;<a>Run</a>
 </nav>
 
 <main>
@@ -121,10 +122,12 @@ let line = 1;
 
 textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
 
-document.querySelector('a').onclick = async () => {
+const submit = document.querySelector('a').onclick = async () => {
     const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
     const data = await res.json();
 
     samp.innerText = data.stdout;
 };
+
+onkeydown = e => e.ctrlKey && e.key == 'Enter' ? submit() : undefined;
 --></script>
