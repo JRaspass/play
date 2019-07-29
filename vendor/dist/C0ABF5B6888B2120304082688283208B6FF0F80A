@@ -1,0 +1,46 @@
+{
+  "api": null,
+  "auth": "Lucien Grondin",
+  "author": "Lucien Grondin",
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "Pure perl6 implementation of digest algorigthms.",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "Digest",
+  "perl": "6.*",
+  "provides": {
+    "Digest": {
+      "lib/Digest.pm": {
+        "cver": "2019.07.1",
+        "file": "0EA551DB7CA98052BA365C25B46BD49DB51F93A0",
+        "time": null
+      }
+    },
+    "Digest::RIPEMD": {
+      "lib/Digest/RIPEMD.pm": {
+        "cver": "2019.07.1",
+        "file": "5F9B85A3E1DECF5B141DC869AA51C35969C11F92",
+        "time": null
+      }
+    },
+    "Digest::SHA": {
+      "lib/Digest/SHA.pm": {
+        "cver": "2019.07.1",
+        "file": "C61E6C50139D029A15E947C2DB2ECA511574F2EB",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/grondilu/libdigest-perl6.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "0.3.4",
+  "version": "0.3.4"
+}

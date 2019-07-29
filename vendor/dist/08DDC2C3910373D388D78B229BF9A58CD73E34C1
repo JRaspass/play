@@ -1,0 +1,33 @@
+{
+  "api": null,
+  "auth": "github:retupmoca",
+  "author": "github:retupmoca",
+  "build-depends": null,
+  "depends": [
+    "Digest"
+  ],
+  "description": "Generic HMAC implementation",
+  "files": {
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "Digest::HMAC",
+  "perl": "6.*",
+  "provides": {
+    "Digest::HMAC": {
+      "lib/Digest/HMAC.pm6": {
+        "cver": "2019.07.1",
+        "file": "CDEA635EB59912F0FB837D2864169293ED785E5B",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/retupmoca/P6-Digest-HMAC.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "1.0.0",
+  "version": "1.0.0"
+}

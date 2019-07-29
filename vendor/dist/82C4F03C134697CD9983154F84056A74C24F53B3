@@ -1,0 +1,37 @@
+{
+  "api": null,
+  "auth": "github:retupmoca",
+  "author": "github:retupmoca",
+  "build-depends": null,
+  "depends": [
+    "JSON::Fast",
+    "MIME::Base64",
+    "OpenSSL",
+    "Digest::HMAC"
+  ],
+  "description": "JWT Signing and Verifying using openssl",
+  "files": {
+  },
+  "license": "MIT",
+  "meta-version": null,
+  "name": "JSON::JWT",
+  "perl": "6.*",
+  "provides": {
+    "JSON::JWT": {
+      "lib/JSON/JWT.pm6": {
+        "cver": "2019.07.1",
+        "file": "4B5F7CB329B5DD6F4697435862EDE4D631CE23B2",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "git://github.com/retupmoca/P6-JSON-JWT.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "1.0",
+  "version": "1.0"
+}

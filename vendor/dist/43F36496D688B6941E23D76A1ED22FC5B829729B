@@ -1,0 +1,32 @@
+{
+  "api": null,
+  "auth": "github:FROGGS",
+  "author": "github:FROGGS",
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "conditionally use packages",
+  "files": {
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "if",
+  "perl": "6.*",
+  "provides": {
+    "if": {
+      "lib/if.pm": {
+        "cver": "2019.07.1",
+        "file": "67CDB2E6B89AF708A8AD9DCFC6219F4C67C20A60",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/FROGGS/p6-if.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "0.1.1",
+  "version": "0.1.1"
+}

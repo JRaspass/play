@@ -3,6 +3,8 @@ use Cro::HTTP::Router;
 use Cro::HTTP::Server;
 use Cro::WebApp::Template;
 
+$*ERR.out-buffer = $*OUT.out-buffer = False;
+
 template-location 'views/', :compile-all;
 
 my $application = route {
@@ -28,8 +30,9 @@ my $application = route {
 }
 
 my @after = Cro::HTTP::Log::File.new: :errors($*ERR) :logs($*OUT);
+my $http  = Cro::HTTP::Server.new: :host<0.0.0.0> :1080port :@after :$application;
 
-( my $http = Cro::HTTP::Server.new: :1080port :@after :$application ).start;
+$http.start;
 
 say 'Listening…';
 

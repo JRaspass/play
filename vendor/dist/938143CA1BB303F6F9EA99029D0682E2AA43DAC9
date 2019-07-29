@@ -1,0 +1,34 @@
+{
+  "api": null,
+  "auth": null,
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "DateTime parser",
+  "files": {
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "DateTime::Parse",
+  "perl": "6.*",
+  "provides": {
+    "DateTime::Parse": {
+      "lib/DateTime/Parse.pm6": {
+        "cver": "2019.07.1",
+        "file": "703635D3023B1FE6D98BF2600452B9BCA55789BB",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/sergot/datetime-parse.git",
+  "support": {
+  },
+  "test-depends": [
+    "Test"
+  ],
+  "ver": "0.9.1",
+  "version": "0.9.1"
+}

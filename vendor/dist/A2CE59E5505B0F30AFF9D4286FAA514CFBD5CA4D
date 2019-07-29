@@ -1,0 +1,40 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "Secure version of IO::Path.child",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "IO::Path::ChildSecure",
+  "perl": "6.c",
+  "provides": {
+    "IO::Path::ChildSecure": {
+      "lib/IO/Path/ChildSecure.pm6": {
+        "cver": "2019.07.1",
+        "file": "0E1112E3C1448091D5AE6FECC93B5B1918E9A428",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "support": {
+    "source": "git://github.com/zoffixznet/perl6-IO-Path-ChildSecure.git"
+  },
+  "tags": [
+    "file",
+    "file system"
+  ],
+  "test-depends": [
+    "Test"
+  ],
+  "ver": "1.001011",
+  "version": "1.001011"
+}

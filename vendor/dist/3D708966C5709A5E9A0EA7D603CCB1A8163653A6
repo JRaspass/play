@@ -1,0 +1,58 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Jonathan Worthington <jnthn@jnthn.net>"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "JSON::Fast"
+  ],
+  "description": "Log tasks with start/end periods and phases, as well as individual events.",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "Log::Timeline",
+  "perl": "6.d",
+  "provides": {
+    "Log::Timeline": {
+      "lib/Log/Timeline.pm6": {
+        "cver": "2019.07.1",
+        "file": "0F5CDA46B783643CA4E3D746E2329D0C256CB46B",
+        "time": null
+      }
+    },
+    "Log::Timeline::Output": {
+      "lib/Log/Timeline/Output.pm6": {
+        "cver": "2019.07.1",
+        "file": "FC8461DEDC344C5654C9A544246209D37E50E530",
+        "time": null
+      }
+    },
+    "Log::Timeline::Output::JSONLines": {
+      "lib/Log/Timeline/Output/JSONLines.pm6": {
+        "cver": "2019.07.1",
+        "file": "25E802A99A6FF8BBCB509121B4283CB8F6ABFE36",
+        "time": null
+      }
+    },
+    "Log::Timeline::Output::Socket": {
+      "lib/Log/Timeline/Output/Socket.pm6": {
+        "cver": "2019.07.1",
+        "file": "06E6FEFC65F4F4F0EDB34FFBC6CC2E1514A49573",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/jnthn/p6-log-timeline.git",
+  "support": {
+  },
+  "test-depends": [
+  ],
+  "ver": "0.3",
+  "version": "0.3"
+}

@@ -1,0 +1,40 @@
+{
+  "api": null,
+  "auth": "github:retupmoca",
+  "author": "github:retupmoca",
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "Encoding and decoding Base64 ASCII strings",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "MIME::Base64",
+  "perl": "6.*",
+  "provides": {
+    "MIME::Base64": {
+      "lib/MIME/Base64.pm6": {
+        "cver": "2019.07.1",
+        "file": "750DB6FCE722BE505ECE48EDC10C072FE681D679",
+        "time": null
+      }
+    },
+    "MIME::Base64::Perl": {
+      "lib/MIME/Base64/Perl.pm6": {
+        "cver": "2019.07.1",
+        "file": "BC70AE03F8AC62C8301EA472DF11439F36DE46FB",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "git://github.com/perl6/Perl6-MIME-Base64.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "1.2.1",
+  "version": "1.2.1"
+}

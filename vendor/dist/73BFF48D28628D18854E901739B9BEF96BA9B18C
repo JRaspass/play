@@ -1,0 +1,54 @@
+{
+  "api": null,
+  "auth": "github:skinkade",
+  "author": "github:skinkade",
+  "build-depends": null,
+  "depends": [
+    "if"
+  ],
+  "description": "Random numbers and bytes mimicking arc4random",
+  "files": {
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "Crypt::Random",
+  "perl": "6.*",
+  "provides": {
+    "Crypt::Random": {
+      "lib/Crypt/Random.pm6": {
+        "cver": "2019.07.1",
+        "file": "C223DF36B97268CA54BFBCF1C7C6BCDB9B0B32EA",
+        "time": null
+      }
+    },
+    "Crypt::Random::Extra": {
+      "lib/Crypt/Random/Extra.pm6": {
+        "cver": "2019.07.1",
+        "file": "758A012BC24B97FD12CC128CDFC607A20B3EA1EF",
+        "time": null
+      }
+    },
+    "Crypt::Random::Nix": {
+      "lib/Crypt/Random/Nix.pm6": {
+        "cver": "2019.07.1",
+        "file": "694216A6AA32B79B40ED31868C6EDFAB61B56ABC",
+        "time": null
+      }
+    },
+    "Crypt::Random::Win": {
+      "lib/Crypt/Random/Win.pm6": {
+        "cver": "2019.07.1",
+        "file": "D76FBD138383AD29B2FD19DFC45F3297B0B9F7E6",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/skinkade/crypt-random.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "0.4.1",
+  "version": "0.4.1"
+}

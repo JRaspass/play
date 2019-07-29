@@ -1,0 +1,162 @@
+{
+  "api": null,
+  "auth": "github:sergot",
+  "author": "github:sergot",
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "OpenSSL bindings",
+  "files": {
+    "resources/libeay32.dll": "B5E3165498720E0250107F9E22D7210F9DEECF87.dll",
+    "resources/ssleay32.dll": "166E5C84FF2829E7EDF7C2C4086E103B1E0FC064.dll"
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "OpenSSL",
+  "perl": "6.*",
+  "provides": {
+    "OpenSSL": {
+      "lib/OpenSSL.pm6": {
+        "cver": "2019.07.1",
+        "file": "018B553E2A2E3D877302BB1DEE4B896BC4B4655C",
+        "time": null
+      }
+    },
+    "OpenSSL::Bio": {
+      "lib/OpenSSL/Bio.pm6": {
+        "cver": "2019.07.1",
+        "file": "B87F89311B418817E80E16421A60A1738807FDB1",
+        "time": null
+      }
+    },
+    "OpenSSL::Cipher": {
+      "lib/OpenSSL/Cipher.pm6": {
+        "cver": "2019.07.1",
+        "file": "66BE9F352D3B7E8D6B6EAC1C28EE618FBC98D970",
+        "time": null
+      }
+    },
+    "OpenSSL::CryptTools": {
+      "lib/OpenSSL/CryptTools.pm6": {
+        "cver": "2019.07.1",
+        "file": "1B311DAE645DECA6704633FC3C5AA6ACF7927D73",
+        "time": null
+      }
+    },
+    "OpenSSL::Ctx": {
+      "lib/OpenSSL/Ctx.pm6": {
+        "cver": "2019.07.1",
+        "file": "FE35A3D4955F21A2F1D0332C189EB428341E4A4D",
+        "time": null
+      }
+    },
+    "OpenSSL::Digest": {
+      "lib/OpenSSL/Digest.pm6": {
+        "cver": "2019.07.1",
+        "file": "C79D91149EF65988494F2D90F9A7149D438B215C",
+        "time": null
+      }
+    },
+    "OpenSSL::Digest::MD5": {
+      "lib/OpenSSL/Digest/MD5.pm6": {
+        "cver": "2019.07.1",
+        "file": "E1E8E343D4ECE4814F0E214A1473CE748CB1BC63",
+        "time": null
+      }
+    },
+    "OpenSSL::EVP": {
+      "lib/OpenSSL/EVP.pm6": {
+        "cver": "2019.07.1",
+        "file": "C84BF4FBE104C1C30FA9149F0E7BC9A9CAC44BB3",
+        "time": null
+      }
+    },
+    "OpenSSL::Err": {
+      "lib/OpenSSL/Err.pm6": {
+        "cver": "2019.07.1",
+        "file": "657D5B8164B8FC5618AC35EE05298F34602D6B0E",
+        "time": null
+      }
+    },
+    "OpenSSL::Method": {
+      "lib/OpenSSL/Method.pm6": {
+        "cver": "2019.07.1",
+        "file": "5ED24D654C23C051515261C80085B71AA0E96CBA",
+        "time": null
+      }
+    },
+    "OpenSSL::NativeLib": {
+      "lib/OpenSSL/NativeLib.pm6": {
+        "cver": "2019.07.1",
+        "file": "63A637A7B8F0082D7932DAAF4AD8E419FFC0DD91",
+        "time": null
+      }
+    },
+    "OpenSSL::PEM": {
+      "lib/OpenSSL/PEM.pm6": {
+        "cver": "2019.07.1",
+        "file": "DF5FB13316BBA9589A5A46395E40ED6A03ACD196",
+        "time": null
+      }
+    },
+    "OpenSSL::RSA": {
+      "lib/OpenSSL/RSA.pm6": {
+        "cver": "2019.07.1",
+        "file": "FC277E2DB235E1045E89ED2D9806D16EB8E2F63E",
+        "time": null
+      }
+    },
+    "OpenSSL::RSATools": {
+      "lib/OpenSSL/RSATools.pm6": {
+        "cver": "2019.07.1",
+        "file": "7E95FE570A012DD7D31059877BFE4B2FBA737461",
+        "time": null
+      }
+    },
+    "OpenSSL::SSL": {
+      "lib/OpenSSL/SSL.pm6": {
+        "cver": "2019.07.1",
+        "file": "6A0CBCB9783A42B64C76B723B7C430C44427BDF1",
+        "time": null
+      }
+    },
+    "OpenSSL::Session": {
+      "lib/OpenSSL/Session.pm6": {
+        "cver": "2019.07.1",
+        "file": "CB1DFEFC1D8F0E176E562A0C927D40BD666152BE",
+        "time": null
+      }
+    },
+    "OpenSSL::Stack": {
+      "lib/OpenSSL/Stack.pm6": {
+        "cver": "2019.07.1",
+        "file": "24D8B6B0B64337141807834C8BF625D6ADDE72F5",
+        "time": null
+      }
+    },
+    "OpenSSL::Version": {
+      "lib/OpenSSL/Version.pm6": {
+        "cver": "2019.07.1",
+        "file": "E9F23D661A8F8490B2497B194C409AF02DC6B71C",
+        "time": null
+      }
+    },
+    "OpenSSL::X509": {
+      "lib/OpenSSL/X509.pm6": {
+        "cver": "2019.07.1",
+        "file": "603D75F6A7B6108BD6154887187412F726BB4B16",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+    "ssleay32.dll",
+    "libeay32.dll"
+  ],
+  "source-url": "git://github.com/sergot/openssl.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "0.1.22",
+  "version": "0.1.22"
+}

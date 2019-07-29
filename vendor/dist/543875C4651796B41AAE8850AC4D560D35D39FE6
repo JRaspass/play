@@ -1,0 +1,36 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Jonathan Worthington"
+  ],
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "Implementation of RFC 7541 HPACK: Header Compression for HTTP/2",
+  "files": {
+  },
+  "license": null,
+  "meta-version": null,
+  "name": "HTTP::HPACK",
+  "perl": "6.c",
+  "provides": {
+    "HTTP::HPACK": {
+      "lib/HTTP/HPACK.pm6": {
+        "cver": "2019.07.1",
+        "file": "4CC285A8AB160824E5A42DC6EF776B610FCEB2F9",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "support": {
+    "source": "git://github.com/jnthn/p6-http-hpack.git"
+  },
+  "test-depends": [
+    "Test"
+  ],
+  "ver": "0.9.2",
+  "version": "0.9.2"
+}
