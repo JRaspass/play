@@ -9,6 +9,11 @@ build-deps:
 bump: build-deps
 	$(DEPS) upgrade
 
+deploy: build
+	@docker tag play-perl6 jraspass/play-perl6
+	@docker push jraspass/play-perl6:latest
+	ssh root@play-perl6.org "docker pull jraspass/play-perl6:latest && docker rm -f play-perl6; docker run --name play-perl6 --read-only --rm --tmpfs /tmp -dp 80:1080 jraspass/play-perl6"
+
 deps: build-deps
 	$(DEPS) install Cro::WebApp
 
