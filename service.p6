@@ -29,7 +29,7 @@ my $application = route {
     }
 }
 
-my @after = Cro::HTTP::Log::File.new: :errors($*ERR) :logs($*OUT);
+my @after = Cro::HTTP::Log::File.new;
 my $http  = Cro::HTTP::Server.new: :host<0.0.0.0> :1080port :@after :$application;
 
 $http.start;
