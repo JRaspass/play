@@ -7,39 +7,55 @@ $*ERR.out-buffer = $*OUT.out-buffer = False;
 
 template-location 'views/', :compile-all;
 
-my $application = route {
-    get ->         { template 'index.crotmp' }
-    get -> 'about' { template 'about.crotmp' }
-    get -> *@path  { static 'static', @path  }
+# HTTP → HTTPS
+my @servers = Cro::HTTP::Server.new(
+    :host<0.0.0.0>
+    :port<1080>
+    :application(route {
+        get -> *@ { redirect :permanent, request.uri.clone: :scheme<https> }
+    })
+);
 
-    get -> 'snippets', Str $id where /^<[A..Za..z0..9_-]>+$/ {
-        ...;
-    }
+@servers.push: Cro::HTTP::Server.new(
+    :after(Cro::HTTP::Log::File.new)
+    :host<0.0.0.0>
+    :http<1.1>
+    :port<1443>
+    :tls({
+        :certificate-file</tls/fullchain.cer>
+        :private-key-file</tls/play-perl6.org.key>
+    })
+    :application(route {
+        get ->         { template 'index.crotmp' }
+        get -> 'about' { template 'about.crotmp' }
+        get -> *@path  { static 'static', @path  }
 
-    post -> 'run' {
-        request-body-text -> $code {
-            warn $code;
-        };
+        get -> 'snippets', Str $id where /^<[A..Za..z0..9_-]>+$/ {
+            ...;
+        }
 
-        content 'application/json', { stdout => 'Hello, World!' };
-    }
+        post -> 'run' {
+            request-body-text -> $code {
+                warn $code;
+            };
 
-    post -> 'share' {
-        ...;
-    }
-}
+            content 'application/json', { stdout => 'Hello, World!' };
+        }
 
-my @after = Cro::HTTP::Log::File.new;
-my $http  = Cro::HTTP::Server.new: :host<0.0.0.0> :1080port :@after :$application;
+        post -> 'share' {
+            ...;
+        }
+    })
+);
 
-$http.start;
+@servers».start;
 
 say 'Listening…';
 
 react whenever signal(SIGINT) {
     say 'Stopping…';
 
-    $http.stop;
+    @servers».stop;
 
     done;
 }
