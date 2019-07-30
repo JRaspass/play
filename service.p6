@@ -24,6 +24,7 @@ my @servers = Cro::HTTP::Server.new(
     :tls({
         :certificate-file</tls/fullchain.cer>
         :private-key-file</tls/play-perl6.org.key>
+        :ciphers<ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384>
     })
     :application(route {
         get ->         { template 'index.crotmp' }
