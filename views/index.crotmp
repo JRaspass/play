@@ -61,8 +61,15 @@ nav {
 
 samp {
     bottom: 0;
+    overflow: auto;
     padding: .5rem;
     top: 75%;
+    white-space: pre;
+}
+
+samp div {
+    color: #999;
+    margin-top: 1rem;
 }
 
 textarea {
@@ -96,9 +103,19 @@ textarea, #lines {
 <main>
     <div id=lines></div>
     <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off>
-use v6.c;
+say qq:to/END/;
+Perl $*PERL.version() implemented by Rakudo $*PERL.compiler.version() on MoarVM $*VM.version()
 
-say 'Hello, World!';
+User $*USER ({+$*USER}) belonging to group $*GROUP ({+$*GROUP})
+
+Running on $*KERNEL.hostname(), Linux $*KERNEL.release()
+
+PID $*PID at {DateTime.now} took {now - INIT now}s
+END
+
+for '/'.IO {
+    .d ?? .dir.sort».&?BLOCK !! .Str.say;
+}
 </textarea>
 </main>
 
@@ -123,10 +140,16 @@ let line = 1;
 textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
 
 const submit = document.querySelector('a').onclick = async () => {
+    samp.innerText = '';
+
     const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
     const data = await res.json();
 
-    samp.innerText = data.stdout;
+    if ('output' in data)
+        samp.innerText = data.output;
+
+    samp.appendChild(document.createElement('div')).innerText
+        = `exitcode: ${data.exitcode} signal: ${data.signal}`;
 };
 
 onkeydown = e => e.ctrlKey && e.key == 'Enter' ? submit() : undefined;

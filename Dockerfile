@@ -12,21 +12,43 @@ RUN git clone git://github.com/rakudo/rakudo \
  && make -j`nproc` install                   \
  && strip /usr/bin/perl6
 
+RUN rm -r /usr/share/nqp/lib/profiler \
+    /usr/share/perl6/runtime/perl6-debug.moarvm
+
+RUN mkdir -p /rootfs/old-root
+
+COPY Makefile run-perl.c /
+
+RUN make run-perl
+
 FROM scratch AS service
 
+# Host
+COPY             service.p6                /
+COPY             group passwd              /etc/
 COPY --from=perl /lib/ld-musl-x86_64.so.1  /lib/
-COPY --from=perl /usr/bin/perl6            /usr/bin/
+COPY             static                    /static/
+COPY --from=perl /run-perl                 \
+                 /usr/bin/perl6            /usr/bin/
 COPY --from=perl /usr/lib/libcrypto.so.1.1 \
                  /usr/lib/libmoar.so       \
                  /usr/lib/libssl.so        /usr/lib/
-COPY --from=perl /usr/share/nqp            /usr/share/nqp
-COPY --from=perl /usr/share/perl6          /usr/share/perl6
+COPY --from=perl /usr/share/nqp            /usr/share/nqp/
+COPY --from=perl /usr/share/perl6          /usr/share/perl6/
+COPY             vendor                    /usr/share/perl6/vendor/
+COPY             views                     /views/
 
-COPY group passwd /etc/
-COPY static       /static/
-COPY vendor       /usr/share/perl6/vendor/
-COPY views        /views/
-COPY service.p6   /
+# Guest
+COPY --from=perl /rootfs                   /rootfs/
+COPY --from=perl /bin/busybox              \
+                 /bin/sh                   /rootfs/bin/
+COPY             group passwd              /rootfs/etc/
+COPY --from=perl /lib/ld-musl-x86_64.so.1  /rootfs/lib/
+COPY --from=perl /usr/bin/id               \
+                 /usr/bin/perl6            /rootfs/usr/bin/
+COPY --from=perl /usr/lib/libmoar.so       /rootfs/usr/lib/
+COPY --from=perl /usr/share/nqp            /rootfs/usr/share/nqp/
+COPY --from=perl /usr/share/perl6          /rootfs/usr/share/perl6/
 
 USER nobody
 

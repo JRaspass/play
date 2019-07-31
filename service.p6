@@ -36,11 +36,32 @@ my @servers = Cro::HTTP::Server.new(
         }
 
         post -> 'run' {
+            my %content;
+
+            # TODO Can we pass the request.body promise to $proc.bind-stdin?
             request-body-text -> $code {
-                warn $code;
+                my $proc = Proc::Async.new: :w, 'run-perl';
+
+                react {
+                    # TODO Can we build the JSON directly from the supply?
+                    whenever $proc.Supply { %content<output> ~= $_ }
+
+                    whenever $proc.start {
+                        %content<exitcode signal> = .exitcode, .signal;
+                        done;
+                    }
+
+                    whenever $proc.print: $code { $proc.close-stdin }
+
+                    whenever Promise.in: 5 { $proc.kill: SIGKILL }
+                }
             };
 
-            content 'application/json', { stdout => 'Hello, World!' };
+            # Strip ANSI escape sequences.
+            %content<output> ~~ s:g/\x1b\[<[0..9;]>*<[A..Za..z]>//
+                if %content<output>:exists;
+
+            content 'application/json', %content;
         }
 
         post -> 'share' {
