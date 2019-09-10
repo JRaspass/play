@@ -58,8 +58,7 @@ my @servers = Cro::HTTP::Server.new(
             };
 
             # Strip ANSI escape sequences.
-            %content<output> ~~ s:g/\x1b\[<[0..9;]>*<[A..Za..z]>//
-                if %content<output>:exists;
+            s:g/\x1b\[<[0..9;]>*<[A..Za..z]>// with %content<output>;
 
             content 'application/json', %content;
         }
