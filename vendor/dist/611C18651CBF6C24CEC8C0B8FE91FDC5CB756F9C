@@ -23,7 +23,7 @@
     "JSON::Fast": {
       "lib/JSON/Fast.pm6": {
         "cver": "2019.07.1",
-        "file": "0F7FB2F694A23799D9133B98761A195FBCD8C2CC",
+        "file": "CF9890C71AE8A56077B5CB316932D72C4F622655",
         "time": null
       }
     }
@@ -39,6 +39,6 @@
   "test-depends": [
     "Test"
   ],
-  "ver": "0.9.18",
-  "version": "0.9.18"
+  "ver": "0.10",
+  "version": "0.10"
 }

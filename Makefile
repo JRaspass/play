@@ -16,6 +16,7 @@ deploy: build
 	ssh root@play-perl6.org "docker pull jraspass/play-perl6:latest && docker rm -f play-perl6; docker run --name play-perl6 --privileged --read-only --rm --tmpfs /tmp -dp 80:1080 -p 443:1443 -v /root/.acme.sh/play-perl6.org_ecc:/tls jraspass/play-perl6"
 
 deps: build-deps
+	rm -fr vendor/*
 	$(DEPS) install Cro::WebApp
 
 dev: build
