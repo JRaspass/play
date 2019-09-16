@@ -11,16 +11,25 @@ bump: build-deps
 	$(DEPS) upgrade
 
 deploy: build
-	docker tag play-perl6 jraspass/play-perl6
-	docker push jraspass/play-perl6:latest
-	ssh root@play-perl6.org "docker pull jraspass/play-perl6:latest && docker rm -f play-perl6; docker run --name play-perl6 --privileged --read-only --restart always --tmpfs /tmp -dp 80:1080 -p 443:1443 -v /root/.acme.sh/play-perl6.org_ecc:/tls jraspass/play-perl6"
+	@docker save play-perl6 | ssh root@play-perl6.org "\
+		docker load &&                                 \
+		docker rm -f play-perl6;                       \
+		docker run                                     \
+		--detach                                       \
+		--name       play-perl6                        \
+		--network    mybridge                          \
+		--privileged                                   \
+		--read-only                                    \
+		--restart    always                            \
+		--tmpfs      /tmp                              \
+		play-perl6"
 
 deps: build-deps
 	rm -fr vendor/*
 	$(DEPS) install Cro::WebApp
 
 dev: build
-	docker run --privileged --read-only --rm --tmpfs /tmp -p 80:1080 -p 443:1443 play-perl6
+	docker run --privileged --read-only --rm --tmpfs /tmp -p 1337:1337 play-perl6
 
 run-perl: run-perl.c
 	$(CC) -o $@ $< $(CFLAGS)
