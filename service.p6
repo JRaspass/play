@@ -45,7 +45,12 @@ CODE
 
         get -> 'examples' { template 'examples.crotmp', { :@examples } }
         get -> 'examples', $id {
-            template 'code.crotmp', %examples{$id}<code>;
+            with %examples{$id} {
+                template 'code.crotmp', .<code>;
+            }
+            else {
+                not-found;
+            }
         }
 
         post -> 'run' {
