@@ -1,0 +1,71 @@
+<:sub header>
+<!doctype html>
+
+<meta name=viewport content="maximum-scale=1,user-scalable=0,width=device-width">
+<title>Play Perl 6</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    color: #333;
+    font: 16px font, system-ui, -apple-system, sans-serif;
+}
+
+button {
+    background: linear-gradient(to bottom, #00a9e0 0, #007ba3 100%);
+    border-radius: .25rem;
+    border: 1px solid #007399;
+    color: #fff;
+    height: 2rem;
+    line-height: calc(2rem - 2px);
+    margin: .5rem !important;
+    padding: 0 .5rem;
+}
+
+button:hover {
+    background: #007ba3;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+nav {
+    background: linear-gradient(to bottom, #dae457 0, #d0dd2b 100%);
+    border-bottom: 1px solid #acb81d;
+    display: flex;
+    height: 3rem;
+    line-height: 3rem;
+    position: sticky;
+    width: 100%;
+}
+
+nav > * { margin: 0 .5rem }
+
+nav > :nth-child(2) { margin-right: auto }
+</style>
+
+<nav>
+    <h1><a href=/>Play Perl 6</a></h1>
+    <a href=/examples>Examples</a>
+    <span>ctrl + enter</span>
+    <span>or</span>
+    <button>Run</button>
+</nav>
+</:>

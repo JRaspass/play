@@ -1,0 +1,29 @@
+<:use 'common.crotmp'>
+
+<&header>
+
+<style>
+div {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    display: grid;
+    grid-gap: .5rem;
+    padding: .5rem;
+}
+
+main {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+</style>
+
+<main>
+    <@examples>
+        <div>
+            <h2><a href="/examples/<.key>"><.value.name></a></h2>
+            <code><.value.code></code>
+        </div>
+    </@>
+</main>

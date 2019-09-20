@@ -7,17 +7,45 @@ $*ERR.out-buffer = $*OUT.out-buffer = False;
 
 template-location 'views/', :compile-all;
 
+my %examples = (
+    directory-listing => {
+        :name<Directory Listing>,
+        :code<for '/'.IO { .d ?? .dir.sort».&?BLOCK !! .Str.say }>,
+    },
+    roll-dice => {
+        :name<Roll Dice>,
+        :code<('⚀'…'⚅').roll(ⅷ).say;>,
+    },
+    shuffle-deck => {
+        :name<Shuffle Deck>,
+        :code<('🂡'…'🃞').grep({ .ord % 16 ∈ (1…14) }).pick(*).say;>,
+    },
+);
+
+my @examples = %examples.pairs.sort: { .value.<name> };
+
 my $server = Cro::HTTP::Server.new(
     :after(Cro::HTTP::Log::File.new)
     :host<0.0.0.0>
     :port<1337>
     :application(route {
-        get ->         { template 'index.crotmp' }
-        get -> 'about' { template 'about.crotmp' }
-        get -> *@path  { static 'static', @path  }
+        get -> { template 'code.crotmp', q:to/CODE/.chomp }
+say qq:to/END/;
+Perl $*PERL.version() implemented by Rakudo $*PERL.compiler.version() on MoarVM $*VM.version()
 
-        get -> 'snippets', Str $id where /^<[A..Za..z0..9_-]>+$/ {
-            ...;
+User $*USER ({+$*USER}) belonging to group $*GROUP ({+$*GROUP})
+
+Running on $*KERNEL.hostname(), Linux $*KERNEL.release()
+
+PID $*PID at {DateTime.now} took {now - INIT now}s
+END
+CODE
+
+        get -> *@path { static 'static', @path }
+
+        get -> 'examples' { template 'examples.crotmp', { :@examples } }
+        get -> 'examples', $id {
+            template 'code.crotmp', %examples{$id}<code>;
         }
 
         post -> 'run' {
@@ -46,10 +74,6 @@ my $server = Cro::HTTP::Server.new(
             s:g/\x1b\[<[0..9;]>*<[A..Za..z]>// with %content<output>;
 
             content 'application/json', %content;
-        }
-
-        post -> 'share' {
-            ...;
         }
     })
 );

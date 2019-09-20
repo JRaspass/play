@@ -1,70 +1,26 @@
-<!doctype html>
+<:use 'common.crotmp'>
 
-<meta name=viewport content="maximum-scale=1,user-scalable=0,width=device-width">
-<title>Play Perl 6</title>
+<&header>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-a {
-    background: linear-gradient(to bottom, #00a9e0 0, #007ba3 100%);
-    border-radius: .25rem;
-    border: 1px solid #007399;
-    color: #fff;
-    display: inline-block;
-    height: 2rem;
-    line-height: calc(2rem - 2px);
-    margin: .5rem 0;
-    padding: 0 .5rem;
-}
-
-a:hover {
-    background: #007ba3;
-    cursor: pointer;
-}
-
-body {
-    color: #333;
-    font: 16px font, system-ui, -apple-system, sans-serif;
-}
-
-h1 {
-    display: inline-block;
-    font-size: 1.5rem;
-    margin-right: auto;
-}
-
 main {
     background: #ffd;
     bottom: 25%;
     overflow: hidden;
     padding: .25rem;
-    top: 3rem;
-}
-
-main, nav, samp {
     position: fixed;
+    top: 3rem;
     width: 100%;
-}
-
-nav {
-    background: linear-gradient(to bottom, #dae457 0, #d0dd2b 100%);
-    border-bottom: 1px solid #acb81d;
-    display: flex;
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 .5rem;
 }
 
 samp {
     bottom: 0;
     overflow: auto;
     padding: .5rem;
+    position: fixed;
     top: 75%;
     white-space: pre;
+    width: 100%;
 }
 
 samp div {
@@ -102,20 +58,7 @@ textarea, #lines {
 
 <main>
     <div id=lines></div>
-    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off>
-say qq:to/END/;
-Perl $*PERL.version() implemented by Rakudo $*PERL.compiler.version() on MoarVM $*VM.version()
-
-User $*USER ({+$*USER}) belonging to group $*GROUP ({+$*GROUP})
-
-Running on $*KERNEL.hostname(), Linux $*KERNEL.release()
-
-PID $*PID at {DateTime.now} took {now - INIT now}s
-END
-
-for '/'.IO {
-    .d ?? .dir.sort».&?BLOCK !! .Str.say;
-}
+    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off><$_>
 </textarea>
 </main>
 
@@ -139,7 +82,7 @@ let line = 1;
 
 textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
 
-const submit = document.querySelector('a').onclick = async () => {
+const submit = document.querySelector('button').onclick = async () => {
     samp.innerText = '';
 
     const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
