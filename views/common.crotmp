@@ -58,12 +58,13 @@ nav {
 
 nav > * { margin: 0 .5rem }
 
-nav > :nth-child(2) { margin-right: auto }
+nav > :nth-child(3) { margin-right: auto }
 </style>
 
 <nav>
     <h1><a href=/>Play Perl 6</a></h1>
     <a href=/examples>Examples</a>
+    <a href=/about>About</a>
     <span>ctrl + enter</span>
     <span>or</span>
     <button>Run</button>

@@ -43,6 +43,8 @@ CODE
 
         get -> *@path { static 'static', @path }
 
+        get -> 'about' { template 'about.crotmp' }
+
         get -> 'examples' { template 'examples.crotmp', { :@examples } }
         get -> 'examples', $id {
             with %examples{$id} {
