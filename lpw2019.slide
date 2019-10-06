@@ -1,0 +1,32 @@
+Swings & Roundabouts
+Building a Perl 6 Playground
+
+James Raspass
+
+* What is a Playground?
+
+- *CodePen.io* - CSS/HTML/JS
+
+- *JSFiddle.net* - CSS/HTML/JS
+
+- *play.golang.org* - Go
+
+- Many, many more…
+
+* Perl 6 Playground
+
+Client side execution
+
+- Rakudo.js
+- Already solved - *link here*
+
+Server side execution
+
+- Mush more fun
+- How to safely execute arbitrary code?
+
+* Sandbox
+
+Pushing the playground metaphor a bit far :-P
+
+- Containers - they're cool these days

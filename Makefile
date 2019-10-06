@@ -24,6 +24,21 @@ deploy: build
 		--tmpfs      /tmp                              \
 		play-perl6"
 
+deploy-slides:
+	@docker build -f Dockerfile.slides -t play-perl6-slides .
+
+	@docker save play-perl6-slides | ssh root@play-perl6.org "\
+		docker load &&                                        \
+		docker rm -f play-perl6-slides;                       \
+		docker run                                            \
+		--detach                                              \
+		--name       play-perl6-slides                        \
+		--network    mybridge                                 \
+		--read-only                                           \
+		--restart    always                                   \
+		--tmpfs      /tmp                                     \
+		play-perl6-slides"
+
 deps: build-deps
 	rm -fr vendor/*
 	$(DEPS) install Cro::WebApp
