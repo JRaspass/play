@@ -24,7 +24,7 @@ RUN make run-perl
 FROM scratch AS service
 
 # Host
-COPY             service.p6                /
+COPY             examples.toml service.p6  /
 COPY             group passwd              /etc/
 COPY --from=perl /lib/ld-musl-x86_64.so.1  /lib/
 COPY             static                    /static/

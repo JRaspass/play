@@ -1,3 +1,4 @@
+use Config::TOML;
 use Cro::HTTP::Log::File;
 use Cro::HTTP::Router;
 use Cro::HTTP::Server;
@@ -7,34 +8,8 @@ $*ERR.out-buffer = $*OUT.out-buffer = False;
 
 template-location 'views/', :compile-all;
 
-my %examples = (
-    calendar => {
-        :name<Calendar>,
-        :code(q:to/END/),
-            with Date.today.truncated-to('month') {
-                print "Mo Tu We Th Fr Sa Su\n", '   ' x .day-of-week - 1;
-
-                my $end = .later(:month).pred;
-
-                printf '%2d%s', .day, $_ == $end || .day-of-week %% 7 ?? "\n" !! ' '
-                    for $_ … $end;
-            }
-            END
-    },
-    directory-listing => {
-        :name<Directory Listing>,
-        :code<for '/'.IO { .d ?? .dir.sort».&?BLOCK !! .Str.say }>,
-    },
-    roll-dice => {
-        :name<Roll Dice>,
-        :code<('⚀'…'⚅').roll(ⅷ).say;>,
-    },
-    shuffle-deck => {
-        :name<Shuffle Deck>,
-        :code<('🂡'…'🃞').grep({ .ord % 16 ∈ (1…14) }).pick(*).say;>,
-    },
-);
-
+my %examples = from-toml(:file<examples.toml>);
+my $welcome  = %examples<welcome>:delete;
 my @examples = %examples.pairs.sort: { .value.<name> };
 
 my $server = Cro::HTTP::Server.new(
@@ -42,17 +17,7 @@ my $server = Cro::HTTP::Server.new(
     :host<0.0.0.0>
     :port<1337>
     :application(route {
-        get -> { template 'code.crotmp', q:to/CODE/.chomp }
-say qq:to/END/;
-Perl $*PERL.version() implemented by Rakudo $*PERL.compiler.version() on MoarVM $*VM.version()
-
-User $*USER ({+$*USER}) belonging to group $*GROUP ({+$*GROUP})
-
-Running on $*KERNEL.hostname(), Linux $*KERNEL.release()
-
-PID $*PID at {DateTime.now} took {now - INIT now}s
-END
-CODE
+        get -> { template 'code.crotmp', $welcome }
 
         get -> *@path { static 'static', @path }
 

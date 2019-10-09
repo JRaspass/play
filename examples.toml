@@ -1,0 +1,42 @@
+welcome = '''
+say qq:to/END/;
+Perl $*PERL.version() implemented by Rakudo $*PERL.compiler.version() on MoarVM $*VM.version()
+
+User $*USER ({+$*USER}) belonging to group $*GROUP ({+$*GROUP})
+
+Running on $*KERNEL.hostname(), Linux $*KERNEL.release()
+
+PID $*PID at {DateTime.now} took {now - INIT now}s
+END
+'''
+
+[calendar]
+name = 'Calendar'
+code = '''
+with Date.today.truncated-to('month') {
+    print "Mo Tu We Th Fr Sa Su\n", '   ' x .day-of-week - 1;
+
+    my $end = .later(:month).pred;
+
+    printf '%2d%s', .day, $_ == $end || .day-of-week %% 7 ?? "\n" !! ' '
+        for $_ … $end;
+}
+'''
+
+[directory-listing]
+name = 'Directory Listing'
+code = '''
+for '/'.IO { .d ?? .dir.sort».&?BLOCK !! .Str.say }
+'''
+
+[roll-dice]
+name = 'Roll Dice'
+code = '''
+('⚀'…'⚅').roll(ⅷ).say;
+'''
+
+[shuffle-deck]
+name = 'Shuffle Deck'
+code = '''
+('🂡'…'🃞').grep({ .ord % 16 ∈ (1…14) }).pick(*).say;
+'''

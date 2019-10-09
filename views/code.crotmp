@@ -58,8 +58,7 @@ textarea, #lines {
 
 <main>
     <div id=lines></div>
-    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off><$_>
-</textarea>
+    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off><$_></textarea>
 </main>
 
 <samp></samp>
