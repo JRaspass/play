@@ -1,0 +1,153 @@
+{
+  "api": null,
+  "auth": "atweiden",
+  "author": "atweiden",
+  "build-depends": null,
+  "depends": null,
+  "description": "Navigate Perl 6 containers and perform tasks",
+  "files": {
+  },
+  "license": "Unlicense",
+  "meta-version": null,
+  "name": "Crane",
+  "perl": "6.*",
+  "provides": {
+    "Crane": {
+      "lib/Crane.pm6": {
+        "cver": "2019.07.1",
+        "file": "EE62FAC60F9500CA0BCB8BAE7CE6C484D7288898",
+        "time": null
+      }
+    },
+    "Crane::Add": {
+      "lib/Crane/Add.pm6": {
+        "cver": "2019.07.1",
+        "file": "5E42A77086CE0F2D94B593808970A305AA12533B",
+        "time": null
+      }
+    },
+    "Crane::At": {
+      "lib/Crane/At.pm6": {
+        "cver": "2019.07.1",
+        "file": "8A2C54CA4E704DF71C7D6E760D7CBEBE3CC5066F",
+        "time": null
+      }
+    },
+    "Crane::Copy": {
+      "lib/Crane/Copy.pm6": {
+        "cver": "2019.07.1",
+        "file": "71E80B0935D0622AC162030BC130DF55DABEAD10",
+        "time": null
+      }
+    },
+    "Crane::Exists": {
+      "lib/Crane/Exists.pm6": {
+        "cver": "2019.07.1",
+        "file": "3C12CBF3F14DBD227C495A963428E28B04FF04DC",
+        "time": null
+      }
+    },
+    "Crane::Flatten": {
+      "lib/Crane/Flatten.pm6": {
+        "cver": "2019.07.1",
+        "file": "21AB75F55339BA19AE8805F48720DAC53DBAB14F",
+        "time": null
+      }
+    },
+    "Crane::Get": {
+      "lib/Crane/Get.pm6": {
+        "cver": "2019.07.1",
+        "file": "C34AE30D774607F44F5D7A1672AA03463205C0C1",
+        "time": null
+      }
+    },
+    "Crane::In": {
+      "lib/Crane/In.pm6": {
+        "cver": "2019.07.1",
+        "file": "4C93BBD396F564CA1A0AB5365F038BDEC3415F2A",
+        "time": null
+      }
+    },
+    "Crane::List": {
+      "lib/Crane/List.pm6": {
+        "cver": "2019.07.1",
+        "file": "FA4D16EF4968CA0686C13D60A6853F1C76293898",
+        "time": null
+      }
+    },
+    "Crane::Move": {
+      "lib/Crane/Move.pm6": {
+        "cver": "2019.07.1",
+        "file": "31D50A5C6F25BB9D38A2B92475279E693B371D9C",
+        "time": null
+      }
+    },
+    "Crane::Patch": {
+      "lib/Crane/Patch.pm6": {
+        "cver": "2019.07.1",
+        "file": "882907B8B8E0BCD3C7D6799C6545B038B0C3EF97",
+        "time": null
+      }
+    },
+    "Crane::Remove": {
+      "lib/Crane/Remove.pm6": {
+        "cver": "2019.07.1",
+        "file": "CDFA5E36FBC06685AE902839431A1CC45569F729",
+        "time": null
+      }
+    },
+    "Crane::Replace": {
+      "lib/Crane/Replace.pm6": {
+        "cver": "2019.07.1",
+        "file": "7D3331CE2D62E8AB5B193644196D85044DC7B06F",
+        "time": null
+      }
+    },
+    "Crane::Set": {
+      "lib/Crane/Set.pm6": {
+        "cver": "2019.07.1",
+        "file": "F2A44AA13DDEDFE04067C593593D0E7760FE69A8",
+        "time": null
+      }
+    },
+    "Crane::Test": {
+      "lib/Crane/Test.pm6": {
+        "cver": "2019.07.1",
+        "file": "B8BD460B600CD59A81C7656153E7E39B856C5DCE",
+        "time": null
+      }
+    },
+    "Crane::Transform": {
+      "lib/Crane/Transform.pm6": {
+        "cver": "2019.07.1",
+        "file": "B4023A2C4C9AEC14ED39227EAA6CEC9E1D331079",
+        "time": null
+      }
+    },
+    "Crane::Utils": {
+      "lib/Crane/Utils.pm6": {
+        "cver": "2019.07.1",
+        "file": "667B832E64DEBA09C26C1744B8F7464CEDBEF4CF",
+        "time": null
+      }
+    },
+    "X::Crane": {
+      "lib/X/Crane.pm6": {
+        "cver": "2019.07.1",
+        "file": "075AB8FC991EEA7E294F79F9E9D35C7B45F31C77",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "git://github.com/atweiden/crane.git",
+  "support": {
+    "bugtracker": "https://github.com/atweiden/crane/issues",
+    "source": "https://github.com/atweiden/crane"
+  },
+  "test-depends": null,
+  "ver": "0.1.0",
+  "version": "0.1.0"
+}

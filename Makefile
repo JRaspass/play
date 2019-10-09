@@ -41,7 +41,7 @@ deploy-slides:
 
 deps: build-deps
 	rm -fr vendor/*
-	$(DEPS) install Cro::WebApp
+	$(DEPS) install Config::TOML Cro::WebApp
 
 dev: build
 	docker run --privileged --read-only --rm --tmpfs /tmp -p 1337:1337 play-perl6

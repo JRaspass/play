@@ -1,0 +1,71 @@
+{
+  "api": null,
+  "auth": "atweiden",
+  "author": "atweiden",
+  "build-depends": null,
+  "depends": [
+    "Crane"
+  ],
+  "description": "TOML file parser and writer",
+  "files": {
+  },
+  "license": "Unlicense",
+  "meta-version": null,
+  "name": "Config::TOML",
+  "perl": "6.*",
+  "provides": {
+    "Config::TOML": {
+      "lib/Config/TOML.pm6": {
+        "cver": "2019.07.1",
+        "file": "D6A812675D22CBE4E785C0CA7A0C2152B7977F6E",
+        "time": null
+      }
+    },
+    "Config::TOML::Dumper": {
+      "lib/Config/TOML/Dumper.pm6": {
+        "cver": "2019.07.1",
+        "file": "1A8FA1712339AD6A8E21F98BADF7AB4CEF615E98",
+        "time": null
+      }
+    },
+    "Config::TOML::Parser": {
+      "lib/Config/TOML/Parser.pm6": {
+        "cver": "2019.07.1",
+        "file": "1CE5EB9CAA4D46605BAA179DBB836C608F3542AF",
+        "time": null
+      }
+    },
+    "Config::TOML::Parser::Actions": {
+      "lib/Config/TOML/Parser/Actions.pm6": {
+        "cver": "2019.07.1",
+        "file": "A2ADF279F390E4F2AEF8C5104DA9B4EC683D8998",
+        "time": null
+      }
+    },
+    "Config::TOML::Parser::Grammar": {
+      "lib/Config/TOML/Parser/Grammar.pm6": {
+        "cver": "2019.07.1",
+        "file": "940A107A84BB8609BAB86D99523D6ADC244F75F9",
+        "time": null
+      }
+    },
+    "X::Config::TOML": {
+      "lib/X/Config/TOML.pm6": {
+        "cver": "2019.07.1",
+        "file": "F642236A185937FD74BFE91E5E0582E936B9317F",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "git://github.com/atweiden/config-toml.git",
+  "support": {
+    "bugtracker": "https://github.com/atweiden/config-toml/issues",
+    "source": "https://github.com/atweiden/config-toml"
+  },
+  "test-depends": null,
+  "ver": "0.1.1",
+  "version": "0.1.1"
+}
