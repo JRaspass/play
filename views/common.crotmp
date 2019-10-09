@@ -10,13 +10,6 @@
     margin: 0;
 }
 
-a {
-    color: #333;
-    text-decoration: none;
-}
-
-a:hover { text-decoration: underline }
-
 body {
     color: #333;
     font: 16px font, system-ui, -apple-system, sans-serif;
@@ -44,6 +37,12 @@ h1 {
     font-size: 1.5rem;
 }
 
+main {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
 nav {
     background: linear-gradient(to bottom, #dae457 0, #d0dd2b 100%);
     border-bottom: 1px solid #acb81d;
@@ -53,6 +52,13 @@ nav {
     position: sticky;
     width: 100%;
 }
+
+nav a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav a:hover { text-decoration: underline }
 
 nav > * { margin: 0 .5rem }
 
