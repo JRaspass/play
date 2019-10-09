@@ -8,6 +8,19 @@ $*ERR.out-buffer = $*OUT.out-buffer = False;
 template-location 'views/', :compile-all;
 
 my %examples = (
+    calendar => {
+        :name<Calendar>,
+        :code(q:to/END/),
+            with Date.today.truncated-to('month') {
+                print "Mo Tu We Th Fr Sa Su\n", '   ' x .day-of-week - 1;
+
+                my $end = .later(:month).pred;
+
+                printf '%2d%s', .day, $_ == $end || .day-of-week %% 7 ?? "\n" !! ' '
+                    for $_ … $end;
+            }
+            END
+    },
     directory-listing => {
         :name<Directory Listing>,
         :code<for '/'.IO { .d ?? .dir.sort».&?BLOCK !! .Str.say }>,
