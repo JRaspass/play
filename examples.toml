@@ -38,5 +38,5 @@ code = '''
 [shuffle-deck]
 name = 'Shuffle Deck'
 code = '''
-('🂡'…'🃞').grep({ .ord % 16 ∈ (1…14) }).pick(*).say;
+('🂡'…'🃞').grep({ .uniname ~~ m:s/<!after KNIGHT> OF/ }).pick(*).say;
 '''

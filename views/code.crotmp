@@ -20,7 +20,7 @@ samp {
     padding: .5rem;
     position: fixed;
     top: 75%;
-    white-space: pre;
+    white-space: pre-wrap;
     width: 100%;
 }
 
