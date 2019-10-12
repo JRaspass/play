@@ -25,7 +25,7 @@ deploy: build
 		play-perl6"
 
 deploy-slides:
-	@docker build -f Dockerfile.slides -t play-perl6-slides .
+	@docker build -t play-perl6-slides slides
 
 	@docker save play-perl6-slides | ssh root@play-perl6.org "\
 		docker load &&                                        \

@@ -1,0 +1,170 @@
+Swings & Roundabouts
+Building a Perl 6 Playground
+
+James Raspass
+
+* What is a Playground?
+
+A code playground is a website that lets you write and execute code.
+
+It massively reduces the time and effort to try a new language, all you need
+is a web browser.
+
+- *CodePen.io* - CSS/HTML/JS
+
+- *JSFiddle.net* - CSS/HTML/JS
+
+- *play.golang.org* - Go
+
+- Many, many more…
+
+* play-perl6.org
+
+.image screenshot.webp
+
+* How to do it?
+
+Client side execution
+
+- Rakudo.js
+- Already solved - perl6.github.io/6pad/
+
+Server side execution
+
+- MoarVM
+- How to safely execute arbitrary code?
+
+* Sandbox
+
+Pushing the playground metaphor a bit far :-P
+
+- Containers
+- seccomp
+- cgroups
+
+* client-side
+
+    <textarea autocapitalize=none autocomplete=off autofocus spellcheck=false wrap=off></textarea>
+
+    <samp></samp>
+
+    <script>
+        const submit = document.querySelector('button').onclick = async () => {
+            samp.innerText = '';
+
+            const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
+            const data = await res.json();
+
+            if ('output' in data)
+                samp.innerText = data.output;
+
+            samp.appendChild(document.createElement('div')).innerText
+                = `exitcode: ${data.exitcode} signal: ${data.signal}`;
+        };
+
+        onkeydown = e => e.ctrlKey && e.key == 'Enter' ? submit() : undefined;
+    </script>
+
+* service.p6
+
+    post -> 'run' {
+        my %content;
+
+        request-body-text -> $code {
+            my $proc = Proc::Async.new: :w, 'run-perl';
+
+            react {
+                whenever $proc.Supply { %content<output> ~= $_ }
+
+                whenever $proc.start {
+                    %content<exitcode signal> = .exitcode, .signal;
+                    done;
+                }
+
+                whenever $proc.print: $code { $proc.close-stdin }
+
+                whenever Promise.in: 5 { $proc.kill: SIGKILL }
+            }
+        };
+
+        content 'application/json', %content;
+    }
+
+* run-perl.c - Step 0: setuid
+
+- service.p6 runs as nobody (65534)
+
+- service.p6 calls run-perl
+
+- run-perl runs as root (0)
+
+	run-perl: run-perl.c
+		$(CC) -o $@ $< $(CFLAGS)
+		chown 0:0 $@
+		chmod u+s $@
+
+- run-perl does the stuff it needs to as root
+
+- run-perl then steps back down to nobody
+
+* run-perl.c - Step 1: unshare
+
+    if (unshare(CLONE_NEWCGROUP|CLONE_NEWIPC|CLONE_NEWNET|CLONE_NEWNS|CLONE_NEWUTS) < 0) {
+        perror("unshare");
+        return 1;
+    }
+
+- CLONE_NEWCGROUP - The process will have a virtualized view of /proc/self/cgroup.
+- CLONE_NEWIPC - The process will have an independent namespace for POSIX message queues.
+- CLONE_NEWNET - The process will have independent IPv4 and IPv6 stacks.
+- CLONE_NEWNS - Mounting and unmounting filesystems will not affect the rest of the system.
+- CLONE_NEWUTS - Setting hostname or domainname will not affect the rest of the system.
+
+* run-perl.c - Step 2: pivot_root
+
+    if (mount(NULL, "/", NULL, MS_PRIVATE|MS_REC, NULL) < 0) {
+        perror("mount private"); return 1;
+    }
+
+    if (mount("/rootfs", "/rootfs", "bind", MS_BIND|MS_REC, NULL) < 0) {
+        perror("mount bind"); return 1;
+    }
+
+    if (syscall(SYS_pivot_root, "/rootfs", "/rootfs/old-root") < 0) {
+        perror("pivot_root"); return 1;
+    }
+
+    if (chdir("/") < 0) {
+        perror("chdir"); return 1;
+    }
+
+    if (umount2("/old-root", MNT_DETACH) < 0) {
+        perror("umount2"); return 1;
+    }
+
+* run-perl.c - Step 3
+
+    if (sethostname(STR_WITH_LEN("play-perl6")) < 0) {
+        perror("sethostname");
+        return 1;
+    }
+
+    if (setgid(65534) < 0) {
+        perror("setgid");
+        return 1;
+    }
+
+    if (setuid(65534) < 0) {
+        perror("setuid");
+        return 1;
+    }
+
+* run-perl.c - Step 4: seccomp
+
+* run-perl.c - Step 5: execl
+
+    execl("/usr/bin/perl6", "/usr/bin/perl6", (char*) NULL);
+    perror("execv");
+    return 1;
+
+* LIVE DEMO
