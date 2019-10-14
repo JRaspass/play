@@ -14,12 +14,11 @@ END
 name = 'Calendar'
 code = '''
 with Date.today.truncated-to('month') {
-    print "Mo Tu We Th Fr Sa Su\n", '   ' x .day-of-week - 1;
-
-    my $end = .later(:month).pred;
-
-    printf '%2d%s', .day, $_ == $end || .day-of-week %% 7 ?? "\n" !! ' '
-        for $_ … $end;
+    .fmt('% 2s', ' ').say for (
+        <Mo Tu We Th Fr Sa Su>,
+        '' xx .day-of-week - 1,
+        ($_ … .later(:month).pred)».day,
+    ).flat.rotor(7, :partial);
 }
 '''
 
