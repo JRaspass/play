@@ -33,7 +33,7 @@ my $server = Cro::HTTP::Server.new(
             }
         }
 
-        post -> 'run' {
+        post -> :$Accept is header {
             my %content;
 
             # TODO Can we pass the request.body promise to $proc.bind-stdin?
@@ -53,12 +53,17 @@ my $server = Cro::HTTP::Server.new(
 
                     whenever Promise.in: 5 { $proc.kill: SIGKILL }
                 }
-            };
+            }
 
-            # Strip ANSI escape sequences.
-            s:g/\x1b\[<[0..9;]>*<[A..Za..z]>// with %content<output>;
+            if $Accept ~~ /«'application/json'»/ {
+                # Strip ANSI escape sequences.
+                s:g/\x1b\[<[0..9;]>*<[A..Za..z]>// with %content<output>;
 
-            content 'application/json', %content;
+                content 'application/json', %content;
+            }
+            else {
+                content 'text/plain', %content<output>;
+            }
         }
     })
 );

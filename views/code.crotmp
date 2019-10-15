@@ -87,8 +87,11 @@ textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
 const submit = document.querySelector('button').onclick = async () => {
     samp.innerText = '';
 
-    const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
-    const data = await res.json();
+    const data = await (await fetch('/', {
+        body:    textarea.value,
+        headers: { 'Accept': 'application/json' },
+        method:  'POST',
+    })).json();
 
     if ('output' in data)
         samp.innerText = data.output;

@@ -40,6 +40,6 @@ code = '''
 name = 'Shuffle Deck'
 code = '''
 ('🂡'…'🃞').grep({
-    .uniname ~~ m:s/<!after KNIGHT> OF/;
+    .uniname ~~ /<!after KNIGHT>' OF'/;
 }).pick(*).say;
 '''

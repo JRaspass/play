@@ -2,16 +2,38 @@
 
 <&header>
 
+<style>
+samp {
+    background: #f5f5f5;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    white-space: pre-wrap;
+}
+</style>
+
 <main>
     <h1>About</h1>
 
     <p>
-        Created by <a href=//github.com/JRaspass>James Raspass</a>
+        Created by <a href=//github.com/JRaspass>James Raspass</a>.
 
     <p>
         Code is written in <a href=//perl6.org>Perl 6</a> using the
         <a href=//cro.services>Cro libraries</a>.
 
     <p>
-        The source code is on <a href=//github.com/JRaspass/play>Github</a>
+        The source code is on <a href=//github.com/JRaspass/play>Github</a>.
+
+    <h2>Command-line Interface</h2>
+
+    <samp>$ echo say 1 + 2 | curl -Ld@- play-perl6.org
+3</samp>
+
+    <samp>$ echo say 1 + 2 | curl -Ld@- play-perl6.org -sHAccept:application/json | jq
+{
+  "exitcode": 0,
+  "output": "3\n",
+  "signal": 0
+}</samp>
 </main>

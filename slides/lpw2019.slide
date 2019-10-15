@@ -52,8 +52,11 @@ Pushing the playground metaphor a bit far :-P
         const submit = document.querySelector('button').onclick = async () => {
             samp.innerText = '';
 
-            const res  = await fetch('/run', { body: textarea.value, method: 'POST' });
-            const data = await res.json();
+            const data = await (await fetch('/', {
+                body:    textarea.value,
+                headers: { 'Accept': 'application/json' },
+                method:  'POST',
+            })).json();
 
             if ('output' in data)
                 samp.innerText = data.output;
@@ -67,27 +70,21 @@ Pushing the playground metaphor a bit far :-P
 
 * service.p6
 
-    post -> 'run' {
-        my %content;
+    request-body-text -> $code {
+        my $proc = Proc::Async.new: :w, 'run-perl';
 
-        request-body-text -> $code {
-            my $proc = Proc::Async.new: :w, 'run-perl';
+        react {
+            whenever $proc.Supply { %content<output> ~= $_ }
 
-            react {
-                whenever $proc.Supply { %content<output> ~= $_ }
-
-                whenever $proc.start {
-                    %content<exitcode signal> = .exitcode, .signal;
-                    done;
-                }
-
-                whenever $proc.print: $code { $proc.close-stdin }
-
-                whenever Promise.in: 5 { $proc.kill: SIGKILL }
+            whenever $proc.start {
+                %content<exitcode signal> = .exitcode, .signal;
+                done;
             }
-        };
 
-        content 'application/json', %content;
+            whenever $proc.print: $code { $proc.close-stdin }
+
+            whenever Promise.in: 5 { $proc.kill: SIGKILL }
+        }
     }
 
 * run-perl.c - Step 0: setuid
@@ -166,5 +163,17 @@ Pushing the playground metaphor a bit far :-P
     execl("/usr/bin/perl6", "/usr/bin/perl6", (char*) NULL);
     perror("execv");
     return 1;
+
+* Command-line Interface
+
+    $ echo say 1 + 2 | curl -Ld@- play-perl6.org
+    3
+ 
+    $ echo say 1 + 2 | curl -Ld@- play-perl6.org -sHAccept:application/json | jq
+    {
+        "exitcode": 0,
+        "output": "3\n",
+        "signal": 0
+    }
 
 * LIVE DEMO
