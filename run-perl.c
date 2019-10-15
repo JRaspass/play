@@ -199,17 +199,17 @@ int main() {
         ALLOW(select),        // 23
 
         // Monitoring File Events
-        ALLOW(fanotify_init),     // 300
-        ALLOW(fanotify_mark),     // 301
-        ALLOW(inotify_add_watch), // 254
-        ALLOW(inotify_init1),     // 294
-        ALLOW(inotify_init),      // 253
-        ALLOW(inotify_rm_watch),  // 255
+        // ALLOW(fanotify_init),     // 300
+        // ALLOW(fanotify_mark),     // 301
+        // ALLOW(inotify_add_watch), // 254
+        // ALLOW(inotify_init1),     // 294
+        // ALLOW(inotify_init),      // 253
+        // ALLOW(inotify_rm_watch),  // 255
 
         // Miscellaneous
-        ALLOW(fadvise64), // 221
-        ALLOW(getrandom), // 318
-        ALLOW(readahead), // 187
+        // ALLOW(fadvise64), // 221
+        ALLOW(getrandom),    // 318
+        // ALLOW(readahead), // 187
 
         /*********\
         | Network |
@@ -273,14 +273,14 @@ int main() {
         ALLOW(setitimer), // 38
 
         // File Descriptor Based Timers
-        ALLOW(timerfd_create),  // 283
-        ALLOW(timerfd_gettime), // 287
-        ALLOW(timerfd_settime), // 286
+        // ALLOW(timerfd_create),  // 283
+        // ALLOW(timerfd_gettime), // 287
+        // ALLOW(timerfd_settime), // 286
 
         // Miscellaneous
-        ALLOW(adjtimex),  // 159
-        ALLOW(nanosleep), // 35
-        ALLOW(times),     // 100
+        // ALLOW(adjtimex), // 159
+        ALLOW(nanosleep),   // 35
+        ALLOW(times),       // 100
 
         /***********\
         | Processes |
@@ -385,14 +385,14 @@ int main() {
         ALLOW(set_tid_address), // 218
 
         // Miscellaneous
-        ALLOW(kcmp),              // 312
-        ALLOW(prctl),             // 157
-        ALLOW(process_vm_readv),  // 310
-        ALLOW(process_vm_writev), // 311
-        ALLOW(ptrace),            // 101
-        ALLOW(seccomp),           // 317
-        ALLOW(unshare),           // 272
-        ALLOW(uselib),            // 134
+        // ALLOW(kcmp),              // 312
+        // ALLOW(prctl),             // 157
+        // ALLOW(process_vm_readv),  // 310
+        // ALLOW(process_vm_writev), // 311
+        // ALLOW(ptrace),            // 101
+        // ALLOW(seccomp),           // 317
+        // ALLOW(unshare),           // 272
+        // ALLOW(uselib),            // 134
 
         /*********\
         | Signals |
