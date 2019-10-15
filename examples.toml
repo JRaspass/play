@@ -33,13 +33,13 @@ for '/'.IO {
 [roll-dice]
 name = 'Roll Dice'
 code = '''
-('⚀'…'⚅').roll(ⅷ).say;
+('⚀' … '⚅').roll(ⅷ).say;
 '''
 
 [shuffle-deck]
 name = 'Shuffle Deck'
 code = '''
-('🂡'…'🃞').grep({
+('🂡' … '🃞').grep({
     .uniname ~~ /<!after KNIGHT>' OF'/;
 }).pick(*).say;
 '''
