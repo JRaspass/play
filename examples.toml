@@ -30,6 +30,15 @@ for '/'.IO {
 }
 '''
 
+[fizz-buzz]
+name = 'Fizz Buzz'
+code = '''
+say $_ %% 15 ?? 'FizzBuzz'
+ !! $_ %% 3  ?? 'Fizz'
+ !! $_ %% 5  ?? 'Buzz'
+ !! $_ for 1 … 100;
+'''
+
 [roll-dice]
 name = 'Roll Dice'
 code = '''
