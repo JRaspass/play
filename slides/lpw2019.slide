@@ -176,4 +176,16 @@ Pushing the playground metaphor a bit far :-P
         "signal": 0
     }
 
+* Future Improvements
+
+- Blue/Green deploy (startup time is not Perl 6's forte)
+- Control groups (cgroups) for limiting RAM/handles/etc.
+- More examples
+- Sharing
+- Syntax highlighting, probably needs a "real" editor like CodeMirror
+- No JS mode? "just" need to make the run button submit a form over POST
+- CPAN modules? Rakduo Star?
+- https://play.{perl6,raku}.org? ;-) Who do I need to talk to/convince?
+- Suggestions on a postcard…
+
 * LIVE DEMO
