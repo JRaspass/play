@@ -25,7 +25,9 @@ with Date.today.truncated-to('month') {
 [directory-listing]
 name = 'Directory Listing'
 code = '''
-for '/'.IO { .d ?? .dir.sort».&?BLOCK !! .Str.say }
+for '/'.IO {
+    .d ?? .dir.sort».&?BLOCK !! .Str.say;
+}
 '''
 
 [roll-dice]
@@ -37,5 +39,7 @@ code = '''
 [shuffle-deck]
 name = 'Shuffle Deck'
 code = '''
-('🂡'…'🃞').grep({ .uniname ~~ m:s/<!after KNIGHT> OF/ }).pick(*).say;
+('🂡'…'🃞').grep({
+    .uniname ~~ m:s/<!after KNIGHT> OF/;
+}).pick(*).say;
 '''

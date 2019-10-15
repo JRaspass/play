@@ -3,22 +3,40 @@
 <&header>
 
 <style>
-code { white-space: pre-wrap }
+code {
+    padding: .5rem;
+    white-space: pre-wrap;
+}
 
 div {
     background: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: .5rem;
     display: grid;
-    grid-gap: .5rem;
+    grid-template-rows: min-content 1fr;
+    overflow: hidden;
+}
+
+div a {
+    background: linear-gradient(to bottom, #00a9e0 0, #007ba3 100%);
+    color: #fff;
     padding: .5rem;
+    text-decoration: none;
+}
+
+div a:hover { background: #007ba3 }
+
+main { grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)) }
+
+@media (max-width: 27rem) {
+    main { grid-template-columns: 1fr }
 }
 </style>
 
 <main>
     <@examples>
         <div>
-            <h2><a href="/examples/<.key>"><.value.name></a></h2>
+            <a href="/examples/<.key>"><.value.name></a>
             <code><.value.code></code>
         </div>
     </@>

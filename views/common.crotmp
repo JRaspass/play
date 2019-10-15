@@ -63,14 +63,20 @@ nav a:hover { text-decoration: underline }
 nav > * { margin: 0 .5rem }
 
 nav > :nth-child(3) { margin-right: auto }
+
+nav > :nth-child(n+4) { display: none }
+
+@media (max-width: 34rem) {
+    .wide{ display:none }
+}
 </style>
 
 <nav>
     <h1><a href=/>Play Perl 6</a></h1>
     <a href=/examples>Examples</a>
     <a href=/about>About</a>
-    <span>ctrl + enter</span>
-    <span>or</span>
+    <span class=wide>ctrl + enter</span>
+    <span class=wide>or</span>
     <button>Run</button>
 </nav>
 </:>
