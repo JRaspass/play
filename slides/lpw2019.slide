@@ -1,5 +1,5 @@
-Swings & Roundabouts
-Building a Perl 6 Playground
+Running Arbitrary Code Safely
+Building a Perl 6 Playground‎
 
 James Raspass
 
@@ -33,14 +33,7 @@ Server side execution
 
 - MoarVM
 - How to safely execute arbitrary code?
-
-* Sandbox
-
-Pushing the playground metaphor a bit far :-P
-
-- Containers
-- seccomp
-- cgroups
+- We need a sanbox! AKA pushing the playground metaphor a bit far :-P
 
 * client-side
 
@@ -69,6 +62,8 @@ Pushing the playground metaphor a bit far :-P
     </script>
 
 * service.p6
+
+    my %content;
 
     request-body-text -> $code {
         my $proc = Proc::Async.new: :w, 'run-perl';
@@ -176,7 +171,11 @@ Pushing the playground metaphor a bit far :-P
         "signal": 0
     }
 
-* Future Improvements
+* LIVE DEMO
+
+* Fin
+
+* Bonus Slide: Future Improvements
 
 - Blue/Green deploy (startup time is not Perl 6's forte)
 - Control groups (cgroups) for limiting RAM/handles/etc.
@@ -187,5 +186,3 @@ Pushing the playground metaphor a bit far :-P
 - CPAN modules? Rakduo Star?
 - https://play.{perl6,raku}.org? ;-) Who do I need to talk to/convince?
 - Suggestions on a postcard…
-
-* LIVE DEMO
