@@ -151,7 +151,32 @@ Server side execution
         return 1;
     }
 
-* run-perl.c - Step 4: seccomp
+* run-perl.c - Step 4: seccomp (secure computing mode)
+
+    #define ALLOW(name) \
+        BPF_JUMP(BPF_JMP+BPF_JEQ+BPF_K, __NR_##name, 0, 1), \
+        BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_ALLOW)
+
+    // sudo journalctl -f       ... SECCOMP ... syscall=xxx ...
+    struct sock_filter filter[] = {
+        BPF_STMT(BPF_LD+BPF_W+BPF_ABS, offsetof(struct seccomp_data, nr)),
+
+        ALLOW(read)   // 0
+        ...
+        ALLOW(clone3) // 435
+
+        BPF_STMT(BPF_RET+BPF_K, SECCOMP_RET_KILL),
+    };
+
+    struct sock_fprog fprog = {(unsigned short) (sizeof(filter) / sizeof(filter[0])), filter};
+
+    if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0)) {
+        perror("prctl(NO_NEW_PRIVS)"); return 1;
+    }
+
+    if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &fprog)) {
+        perror("prctl(SECCOMP)"); return 1;
+    }
 
 * run-perl.c - Step 5: execl
 
