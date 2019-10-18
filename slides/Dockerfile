@@ -1,4 +1,4 @@
-FROM golang:1.13.1-buster
+FROM golang:1.13.3-buster
 
 RUN CGO_ENABLED=0 go get -ldflags -s golang.org/x/tools/cmd/present
 
