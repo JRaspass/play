@@ -1,0 +1,384 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Jonathan Worthington <jnthn@jnthn.net>"
+  ],
+  "build-depends": null,
+  "depends": [
+    "IO::Socket::Async::SSL",
+    "OO::Monitors",
+    "IO::Path::ChildSecure",
+    "Base64",
+    "HTTP::HPACK",
+    "Cro::Core",
+    "Cro::TLS",
+    "JSON::Fast",
+    "Crypt::Random",
+    "JSON::JWT",
+    "DateTime::Parse",
+    "Log::Timeline"
+  ],
+  "description": "Asynchronous HTTP, both client and server side. Includes HTTP/2.0 support.",
+  "files": {
+    "resources/folder/test.txt": "ADF66B079B805B0E6C978542B29B27ECB5A097F7.txt",
+    "resources/index.html": "1DA1ACF15280C69EDD2DA6C1BD849407AE360D22.html"
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "Cro::HTTP",
+  "perl": "6.*",
+  "provides": {
+    "Cro::HTTP2::ConnectionState": {
+      "lib/Cro/HTTP2/ConnectionState.pm6": {
+        "cver": "2019.07.1",
+        "file": "651E11D402EBAA33EEFB9A3A41840ABCDF00F1CF",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::Frame": {
+      "lib/Cro/HTTP2/Frame.pm6": {
+        "cver": "2019.07.1",
+        "file": "AC85601B9020DF301E9B7991D37271517C33CB35",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::FrameParser": {
+      "lib/Cro/HTTP2/FrameParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "A2B0C27D9921381A6C1BCB8162D3940785EB5DB0",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::FrameSerializer": {
+      "lib/Cro/HTTP2/FrameSerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "5264E34CCF2E68F62CB9A1ACE9C1656E8D7F8969",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::GeneralParser": {
+      "lib/Cro/HTTP2/GeneralParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "8D9CB997981F2C75D0C942EFC5886BCA6ABEB4ED",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::RequestParser": {
+      "lib/Cro/HTTP2/RequestParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "B1065FE413098783B6782E8387ACCC63F60ED8F6",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::RequestSerializer": {
+      "lib/Cro/HTTP2/RequestSerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "7ED26C09D673B4E03E9A4BE80B881B353A2A8A6E",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::ResponseParser": {
+      "lib/Cro/HTTP2/ResponseParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "E0A3DA0560E4571D85E79F0ED9387B6E7EC37173",
+        "time": null
+      }
+    },
+    "Cro::HTTP2::ResponseSerializer": {
+      "lib/Cro/HTTP2/ResponseSerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "89AFB0AF77A658576D3B6F021B2D44FFF73341CC",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth": {
+      "lib/Cro/HTTP/Auth.pm6": {
+        "cver": "2019.07.1",
+        "file": "3454234EC1FF98DB461D8D27A5F04AEAD3F8555E",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth::Basic": {
+      "lib/Cro/HTTP/Auth/Basic.pm6": {
+        "cver": "2019.07.1",
+        "file": "28E9047F3DDEFE30AAD9B05D044DFDC9B2490172",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth::WebToken": {
+      "lib/Cro/HTTP/Auth/WebToken.pm6": {
+        "cver": "2019.07.1",
+        "file": "B151EF97A7BDE56AC11663CDD2223C929CA5729E",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth::WebToken::Bearer": {
+      "lib/Cro/HTTP/Auth/WebToken/Bearer.pm6": {
+        "cver": "2019.07.1",
+        "file": "E348E4EFEB5F753B65EED98D4FDCA99346B93534",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth::WebToken::FromCookie": {
+      "lib/Cro/HTTP/Auth/WebToken/FromCookie.pm6": {
+        "cver": "2019.07.1",
+        "file": "CC346418CD24DEDD909B6AA44A74DBA82ABFB42A",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Auth::WebToken::Token": {
+      "lib/Cro/HTTP/Auth/WebToken/Token.pm6": {
+        "cver": "2019.07.1",
+        "file": "4BD3AFB7904232D4AD5465A096811D0726FCA545",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Body": {
+      "lib/Cro/HTTP/Body.pm6": {
+        "cver": "2019.07.1",
+        "file": "09951F0F255FEFDB02F4DB86707DB6714318822A",
+        "time": null
+      }
+    },
+    "Cro::HTTP::BodyParserSelectors": {
+      "lib/Cro/HTTP/BodyParserSelectors.pm6": {
+        "cver": "2019.07.1",
+        "file": "175E57207160275979756A42958283457158A494",
+        "time": null
+      }
+    },
+    "Cro::HTTP::BodyParsers": {
+      "lib/Cro/HTTP/BodyParsers.pm6": {
+        "cver": "2019.07.1",
+        "file": "4C6B6283BF7B8499876993D106640C5FF4F1A79D",
+        "time": null
+      }
+    },
+    "Cro::HTTP::BodySerializerSelectors": {
+      "lib/Cro/HTTP/BodySerializerSelectors.pm6": {
+        "cver": "2019.07.1",
+        "file": "5FFF34D2E221228A1E03F683569C8833AA6B259A",
+        "time": null
+      }
+    },
+    "Cro::HTTP::BodySerializers": {
+      "lib/Cro/HTTP/BodySerializers.pm6": {
+        "cver": "2019.07.1",
+        "file": "A8DF0D47B6F0686A0B80D643EA190B47669BA644",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Client": {
+      "lib/Cro/HTTP/Client.pm6": {
+        "cver": "2019.07.1",
+        "file": "ECCB15BAEF09CE282370A569F7B29849407D48B5",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Client::CookieJar": {
+      "lib/Cro/HTTP/Client/CookieJar.pm6": {
+        "cver": "2019.07.1",
+        "file": "8F05280AFD55AF319774B016E0E06998C5916583",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Cookie": {
+      "lib/Cro/HTTP/Cookie.pm6": {
+        "cver": "2019.07.1",
+        "file": "CD22D0E48942B9E09B5DEB54F2D03099153D588B",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Exception": {
+      "lib/Cro/HTTP/Exception.pm6": {
+        "cver": "2019.07.1",
+        "file": "F91CB7A0833F272FE3563B8DBDF9F37A9ADFCD17",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Header": {
+      "lib/Cro/HTTP/Header.pm6": {
+        "cver": "2019.07.1",
+        "file": "E66D69CE35641E7483D9F808193ACDCB1C2B7B8C",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Internal": {
+      "lib/Cro/HTTP/Internal.pm6": {
+        "cver": "2019.07.1",
+        "file": "D69ADAA9BE77DD33B9702EA1BCD4D35E6379EA88",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Log::File": {
+      "lib/Cro/HTTP/Log/File.pm6": {
+        "cver": "2019.07.1",
+        "file": "794E18F5F4F80DEE905DE049F8655401F940C814",
+        "time": null
+      }
+    },
+    "Cro::HTTP::LogTimelineSchema": {
+      "lib/Cro/HTTP/LogTimelineSchema.pm6": {
+        "cver": "2019.07.1",
+        "file": "9D1032045503C02A668AE9CC62E2D0237559B9DA",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Message": {
+      "lib/Cro/HTTP/Message.pm6": {
+        "cver": "2019.07.1",
+        "file": "049986EF602DD88932B05658FFDD383B6D646D4C",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Middleware": {
+      "lib/Cro/HTTP/Middleware.pm6": {
+        "cver": "2019.07.1",
+        "file": "B1FFD3C43757FE69A455E08BA0FC1E4E28FEF309",
+        "time": null
+      }
+    },
+    "Cro::HTTP::MimeTypes": {
+      "lib/Cro/HTTP/MimeTypes.pm6": {
+        "cver": "2019.07.1",
+        "file": "E1D09A21916F42BF04DE889751BA3E7C8EC666B9",
+        "time": null
+      }
+    },
+    "Cro::HTTP::MultiValue": {
+      "lib/Cro/HTTP/MultiValue.pm6": {
+        "cver": "2019.07.1",
+        "file": "9B8CA6767142DCBEA3DC755C2E6B57660E2A31BE",
+        "time": null
+      }
+    },
+    "Cro::HTTP::PushPromise": {
+      "lib/Cro/HTTP/PushPromise.pm6": {
+        "cver": "2019.07.1",
+        "file": "D53735686374E9ACB412B4074B7D337839C796A6",
+        "time": null
+      }
+    },
+    "Cro::HTTP::RawBodyParser": {
+      "lib/Cro/HTTP/RawBodyParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "679C3A7C2C55FED43EEA1F5CB8EDFBA7DFF222F2",
+        "time": null
+      }
+    },
+    "Cro::HTTP::RawBodyParserSelector": {
+      "lib/Cro/HTTP/RawBodyParserSelector.pm6": {
+        "cver": "2019.07.1",
+        "file": "495D2BA58EBEDE42261AF5A6FEE59F8F017298A0",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Request": {
+      "lib/Cro/HTTP/Request.pm6": {
+        "cver": "2019.07.1",
+        "file": "594B58A58F2284EEE6F7805156E042DA4D050BEE",
+        "time": null
+      }
+    },
+    "Cro::HTTP::RequestParser": {
+      "lib/Cro/HTTP/RequestParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "A0FA8341EF2FAEC61CD720BC282DD850EC071B03",
+        "time": null
+      }
+    },
+    "Cro::HTTP::RequestSerializer": {
+      "lib/Cro/HTTP/RequestSerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "C7DCAC2186443F7431F98086421B7958C99EFFE1",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Response": {
+      "lib/Cro/HTTP/Response.pm6": {
+        "cver": "2019.07.1",
+        "file": "3B97DEB788D168AFE0A749C75DAAA170A7A2A2C0",
+        "time": null
+      }
+    },
+    "Cro::HTTP::ResponseParser": {
+      "lib/Cro/HTTP/ResponseParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "09F375A48E356C2190C4E5B7B29F018D10C79CB4",
+        "time": null
+      }
+    },
+    "Cro::HTTP::ResponseSerializer": {
+      "lib/Cro/HTTP/ResponseSerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "C0E0ADA5E36A33C776419BB3AA19C88EEBDF0899",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Router": {
+      "lib/Cro/HTTP/Router.pm6": {
+        "cver": "2019.07.1",
+        "file": "9A69BC70F2D8C7BD950C926E19009FF093ED8524",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Server": {
+      "lib/Cro/HTTP/Server.pm6": {
+        "cver": "2019.07.1",
+        "file": "80CF2FB403950800EEC84ABB9074740AFBE8C121",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Session::IdGenerator": {
+      "lib/Cro/HTTP/Session/IdGenerator.pm6": {
+        "cver": "2019.07.1",
+        "file": "DB5CAF7F3D942D328E28ACA203678E0FC69D0632",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Session::InMemory": {
+      "lib/Cro/HTTP/Session/InMemory.pm6": {
+        "cver": "2019.07.1",
+        "file": "F2761A62664DEACA7605AA777F6ADEADD7A9B229",
+        "time": null
+      }
+    },
+    "Cro::HTTP::Session::Persistent": {
+      "lib/Cro/HTTP/Session/Persistent.pm6": {
+        "cver": "2019.07.1",
+        "file": "2131859E4AFB5C936CB06CF26F3B616A3B6062A7",
+        "time": null
+      }
+    },
+    "Cro::HTTP::VersionSelector": {
+      "lib/Cro/HTTP/VersionSelector.pm6": {
+        "cver": "2019.07.1",
+        "file": "8FEE4DAF5014CC3F88AB7CBF920415D576DD5A18",
+        "time": null
+      }
+    },
+    "Cro::Uri::HTTP": {
+      "lib/Cro/Uri/HTTP.pm6": {
+        "cver": "2019.07.1",
+        "file": "12EA51AF0EDA01DC0ADBF0225E2EC92F828F32A5",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+    "index.html",
+    "folder/test.txt"
+  ],
+  "source-url": "https://github.com/croservices/cro-http.git",
+  "support": {
+  },
+  "tags": [
+    "HTTP",
+    "Client",
+    "Server"
+  ],
+  "test-depends": null,
+  "ver": "0.8.2",
+  "version": "0.8.2"
+}

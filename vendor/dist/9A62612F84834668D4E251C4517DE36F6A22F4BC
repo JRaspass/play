@@ -1,0 +1,83 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Jonathan Worthington <jnthn@jnthn.net>"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "Cro::HTTP"
+  ],
+  "description": "HTML templating for building server-side web applications with Cro.",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "Cro::WebApp",
+  "perl": "6.*",
+  "provides": {
+    "Cro::WebApp::Template": {
+      "lib/Cro/WebApp/Template.pm6": {
+        "cver": "2019.07.1",
+        "file": "584CF002444525CACA82437C02C70A0B6FDCBEEA",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::AST": {
+      "lib/Cro/WebApp/Template/AST.pm6": {
+        "cver": "2019.07.1",
+        "file": "4C6032F65F12A01F11964CA85D562CD9C508D010",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::ASTBuilder": {
+      "lib/Cro/WebApp/Template/ASTBuilder.pm6": {
+        "cver": "2019.07.1",
+        "file": "3B6C3B59BFF5185799BE3833027C94E8A65BACCA",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::Builtins": {
+      "lib/Cro/WebApp/Template/Builtins.pm6": {
+        "cver": "2019.07.1",
+        "file": "27B982EAC12A78BC61C1DFF3958DA47E993A4998",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::Error": {
+      "lib/Cro/WebApp/Template/Error.pm6": {
+        "cver": "2019.07.1",
+        "file": "DBD5C35B719087656862747A9727CA4187C20749",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::Parser": {
+      "lib/Cro/WebApp/Template/Parser.pm6": {
+        "cver": "2019.07.1",
+        "file": "88ED7350873D0A65558E39146A230B8BCA6FD73B",
+        "time": null
+      }
+    },
+    "Cro::WebApp::Template::Repository": {
+      "lib/Cro/WebApp/Template/Repository.pm6": {
+        "cver": "2019.07.1",
+        "file": "E2CEF1A94145EA3168D101BB34EB6976F11B942A",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/croservices/cro-webapp.git",
+  "support": {
+  },
+  "tags": [
+    "template",
+    "web"
+  ],
+  "test-depends": [
+  ],
+  "ver": "0.8.2",
+  "version": "0.8.2"
+}

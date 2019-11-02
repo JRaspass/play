@@ -1,0 +1,160 @@
+{
+  "api": null,
+  "auth": null,
+  "authors": [
+    "Jonathan Worthington <jnthn@jnthn.net>"
+  ],
+  "build-depends": null,
+  "depends": [
+  ],
+  "description": "Implements the asynchronous pipeline at the heart of all Cro libraries.",
+  "files": {
+  },
+  "license": "Artistic-2.0",
+  "meta-version": null,
+  "name": "Cro::Core",
+  "perl": "6.*",
+  "provides": {
+    "Cro": {
+      "lib/Cro.pm6": {
+        "cver": "2019.07.1",
+        "file": "CB88762A09B6F604E248E3A016F3BE755597205F",
+        "time": null
+      }
+    },
+    "Cro::BodyParser": {
+      "lib/Cro/BodyParser.pm6": {
+        "cver": "2019.07.1",
+        "file": "31640D3FEC12593CCFC5D14FCD9362B2FA816E51",
+        "time": null
+      }
+    },
+    "Cro::BodyParserSelector": {
+      "lib/Cro/BodyParserSelector.pm6": {
+        "cver": "2019.07.1",
+        "file": "913ED3117080C9D57F111E004D595B7958A9CC65",
+        "time": null
+      }
+    },
+    "Cro::BodySerializer": {
+      "lib/Cro/BodySerializer.pm6": {
+        "cver": "2019.07.1",
+        "file": "CDF51179CCF9BD8600C8CBDFE468BADD98B8A9DB",
+        "time": null
+      }
+    },
+    "Cro::BodySerializerSelector": {
+      "lib/Cro/BodySerializerSelector.pm6": {
+        "cver": "2019.07.1",
+        "file": "5C626A512B305544A0E5BD9DDF230975F070A4D7",
+        "time": null
+      }
+    },
+    "Cro::Connection": {
+      "lib/Cro/Connection.pm6": {
+        "cver": "2019.07.1",
+        "file": "D70BC7B352C7ABDDC1393C773EE9D76D37DCC610",
+        "time": null
+      }
+    },
+    "Cro::Connector": {
+      "lib/Cro/Connector.pm6": {
+        "cver": "2019.07.1",
+        "file": "C1AC07B936DFB2C0AA222922FB6F0E7A438FF2B8",
+        "time": null
+      }
+    },
+    "Cro::Iri": {
+      "lib/Cro/Iri.pm6": {
+        "cver": "2019.07.1",
+        "file": "1B9187353AB5BA1BCDA9955178C2B28E414DB226",
+        "time": null
+      }
+    },
+    "Cro::MediaType": {
+      "lib/Cro/MediaType.pm6": {
+        "cver": "2019.07.1",
+        "file": "607C550D8682857B40C6F6E6D8A6D82ADA7AF60E",
+        "time": null
+      }
+    },
+    "Cro::Message": {
+      "lib/Cro/Message.pm6": {
+        "cver": "2019.07.1",
+        "file": "96809A1CA089D5F44383862D46BFDB25D6875375",
+        "time": null
+      }
+    },
+    "Cro::MessageWithBody": {
+      "lib/Cro/MessageWithBody.pm6": {
+        "cver": "2019.07.1",
+        "file": "D6D6001F2B4CE64A9A2686436ADCE1CCF9F7D13C",
+        "time": null
+      }
+    },
+    "Cro::Replyable": {
+      "lib/Cro/Replyable.pm6": {
+        "cver": "2019.07.1",
+        "file": "41E085A9C0E32A358922BD578C39669A0850C0D8",
+        "time": null
+      }
+    },
+    "Cro::Service": {
+      "lib/Cro/Service.pm6": {
+        "cver": "2019.07.1",
+        "file": "E38C2C255ABEE9F1D6478B238E3A6309E465A775",
+        "time": null
+      }
+    },
+    "Cro::Sink": {
+      "lib/Cro/Sink.pm6": {
+        "cver": "2019.07.1",
+        "file": "C4768C3D0EE0A0EE67E2F1634A810E6D7594EC7E",
+        "time": null
+      }
+    },
+    "Cro::Source": {
+      "lib/Cro/Source.pm6": {
+        "cver": "2019.07.1",
+        "file": "E3CA4D92075EBC9485314104EDF1AE1C269D8AE3",
+        "time": null
+      }
+    },
+    "Cro::TCP": {
+      "lib/Cro/TCP.pm6": {
+        "cver": "2019.07.1",
+        "file": "84057C1B326A87C95644C954217DFD610AA89CF2",
+        "time": null
+      }
+    },
+    "Cro::Transform": {
+      "lib/Cro/Transform.pm6": {
+        "cver": "2019.07.1",
+        "file": "7CCDF37A6F6FAA8090AFBB3316D405489A066CBC",
+        "time": null
+      }
+    },
+    "Cro::Types": {
+      "lib/Cro/Types.pm6": {
+        "cver": "2019.07.1",
+        "file": "DA7406817F667BD2EE0A78FFC5C453904601B330",
+        "time": null
+      }
+    },
+    "Cro::Uri": {
+      "lib/Cro/Uri.pm6": {
+        "cver": "2019.07.1",
+        "file": "179192313506B2E26D717BBDCE6E9D29D1858E06",
+        "time": null
+      }
+    }
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/croservices/cro-core.git",
+  "support": {
+  },
+  "test-depends": null,
+  "ver": "0.8.2",
+  "version": "0.8.2"
+}
