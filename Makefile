@@ -2,10 +2,10 @@ CFLAGS = -Wall -Wextra -Werror
 DEPS   = docker run --rm --tmpfs /.perl6 --tmpfs /.zef -u $(shell id -u):$(shell id -g) -v $(PWD)/vendor:/usr/share/perl6/vendor play-perl6-deps
 
 build:
-	docker build --target service -t play-perl6 .
+	docker build --pull --target service -t play-perl6 .
 
 build-deps:
-	docker build -t play-perl6-deps .
+	docker build --pull -t play-perl6-deps .
 
 bump: build-deps
 	$(DEPS) upgrade

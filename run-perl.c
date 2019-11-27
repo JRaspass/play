@@ -576,7 +576,7 @@ int main() {
         return 1;
     }
 
-    execl("/usr/bin/perl6", "/usr/bin/perl6", (char*) NULL);
+    execl("/usr/bin/rakudo", "/usr/bin/rakudo", (char*) NULL);
     perror("execv");
     return 1;
 }
